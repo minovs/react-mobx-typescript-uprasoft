@@ -6,10 +6,9 @@ class Workers {
   constructor() {
     makeAutoObservable(this)
   }
-  async fetchWorkers() {
-    //cookies.set('chosenDate', Date.now())
+  async fetchWorkers(date: string) {
     try {
-      const response = await fetch('/api/workers')
+      const response = await fetch(`/api/workers/${date}`)
       const json: IWrkersList[] = await response.json()
       runInAction(() => {
         this.workersList = json

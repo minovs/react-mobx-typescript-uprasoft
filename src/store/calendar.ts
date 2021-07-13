@@ -1,20 +1,18 @@
 import { makeAutoObservable } from 'mobx'
-import Cookies from 'universal-cookie'
 import worker from './worker'
 import report from './report'
 
-const cookies = new Cookies()
-
 class Calendar {
-  currentdate: Date = new Date()
+  currentdate: any = new Date()
   constructor() {
     makeAutoObservable(this)
   }
   changeDate(date: Date) {
+    const dateToStor = date.getTime().toString()
     this.currentdate = date
-    cookies.set('chosenDate', date.getTime())
+    localStorage.setItem('chosenDate', dateToStor)
     report.report = []
-    worker.fetchWorkers()
+    worker.fetchWorkers(dateToStor)
   }
 }
 export default new Calendar()

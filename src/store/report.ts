@@ -8,8 +8,9 @@ class Report {
     makeAutoObservable(this)
   }
   async fetchReport(id: string) {
+    const date = localStorage.getItem('chosenDate')
     try {
-      const response = await fetch(`/api/report/${id}`)
+      const response = await fetch(`/api/reports/${date}/${id}`)
       const json = await response.json()
       runInAction(() => {
         this.report = json

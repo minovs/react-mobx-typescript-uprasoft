@@ -1,19 +1,16 @@
 import React, { FC, useEffect } from 'react'
 import { observer } from 'mobx-react-lite'
-import Cookies from 'universal-cookie'
 import report from '../../store/report'
-
-const cookies = new Cookies()
 
 export const OverTable: FC = observer(() => {
   useEffect(() => {
-    const hideTimeInObgFromCookies = cookies.get('hideTimeInObg')
-    if (hideTimeInObgFromCookies && hideTimeInObgFromCookies !== '1') {
-      report.hideTimeInObgChange(hideTimeInObgFromCookies)
+    const hideTimeInObgFromStorage = localStorage.getItem('hideTimeInObg')
+    if (hideTimeInObgFromStorage && hideTimeInObgFromStorage !== '1') {
+      report.hideTimeInObgChange(hideTimeInObgFromStorage)
     }
   }, []) // eslint-disable-line
   const hideTimeInObgChangeHendler = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    cookies.set('hideTimeInObg', e.target.value)
+    localStorage.setItem('hideTimeInObg', e.target.value)
     report.hideTimeInObgChange(e.target.value)
   }
   return (

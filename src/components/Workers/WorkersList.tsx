@@ -1,20 +1,19 @@
 import React, { FC, useState, useEffect } from 'react'
 import { observer } from 'mobx-react-lite'
-import Cookies from 'universal-cookie'
 import worker from '../../store/worker'
 import calendar from '../../store/calendar'
 import report from '../../store/report'
 import { Accordion, AccordionSummary, AccordionDetails } from './accordion'
 import './Workers.css'
 
-const cookies = new Cookies()
-
 export const WorkersList: FC = observer(() => {
   const [expanded, setExpanded] = useState<string | false>('panel61')
 
   useEffect(() => {
-    const chosenDate: number = +cookies.get('chosenDate')
-    chosenDate !== undefined ? calendar.changeDate(new Date(chosenDate)) : worker.fetchWorkers()
+    const chosenDate = localStorage.getItem('chosenDate')
+    chosenDate !== undefined
+      ? calendar.changeDate(new Date(+chosenDate!))
+      : worker.fetchWorkers(new Date().getTime().toString())
   }, [])
 
   const handleChange = (panel: string) => (event: React.ChangeEvent<{}>, newExpanded: boolean) => {
