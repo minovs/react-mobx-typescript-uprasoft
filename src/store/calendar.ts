@@ -12,7 +12,7 @@ class Calendar {
     this.currentdate = date
     localStorage.setItem('chosenDate', dateToStor)
     report.report = []
-    worker.fetchWorkers(dateToStor)
+    worker.getWorkers(dateToStor)
   }
 }
 export default new Calendar()

@@ -1,6 +1,7 @@
 import React, { FC, useEffect } from 'react'
 import { observer } from 'mobx-react-lite'
 import report from '../../store/report'
+import cls from './Table.module.css'
 
 export const OverTable: FC = observer(() => {
   useEffect(() => {
@@ -14,13 +15,13 @@ export const OverTable: FC = observer(() => {
     report.hideTimeInObgChange(e.target.value)
   }
   return (
-    <div className="overTable">
-      <div className="child buttons">
+    <div className={cls.overTable}>
+      <div className={`${cls.child} ${cls.buttons}`}>
         <button className="getMap">Карта</button>
         <button className="milage">Пробег</button>
       </div>
-      <div className="milInfBlock child">.</div>
-      <div className="selObg child">
+      <div className={`${cls.milInfBlock} ${cls.child}`}>.</div>
+      <div className={`selObg ${cls.child}`}>
         Показывать больше:
         <select value={report.hideTimeInObg} onChange={hideTimeInObgChangeHendler}>
           <option value="0">все</option>

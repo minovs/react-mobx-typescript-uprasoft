@@ -1,14 +1,9 @@
-import {FC} from 'react'
-import './Futer.css'
+import { FC } from 'react'
 
-const Futer:FC = () => {
+const Futer: FC = () => {
   return (
     <footer>
-      <div className="footContainer">
-        <div className="copyright">
-          copyright © 2020
-        </div>     
-      </div>
+      <p>copyright © 2021</p>
     </footer>
   )
 }

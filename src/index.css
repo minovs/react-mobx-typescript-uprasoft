@@ -14,3 +14,76 @@ body {
   flex: auto;
   font-family: 'Lucida Grande', 'Lucida Sans Unicode', Arial, Helvetica, Verdana, sans-serif;
 }
+header {
+  display: flex;
+  justify-content: flex-end;
+  height: 49px;
+  background-color: #08aef1;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  opacity: 0.9;
+  z-index: 1000;
+}
+main {
+  display: flex;
+  position: relative;
+  padding-top: 60px;
+  width: 100%;
+  min-height: calc(100vh - 50px);
+}
+aside {
+  margin-left: 10px;
+}
+footer {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  height: 49px;
+  background-color: #08aef1;
+}
+footer p {
+  color: #fff;
+}
+.react-datepicker__input-container input {
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 3px 0;
+  margin-right: 10px;
+}
+table {
+  min-width: 100%;
+  border-collapse: collapse;
+}
+thead tr td {
+  text-align: center;
+  font: bold 12px sans-serif;
+}
+td {
+  border: 1px solid black;
+  padding: 5px;
+  font: 12px sans-serif;
+}
+.marker td {
+  color: #08aef1;
+}
+.activ,
+.hedactiv {
+  color: #000;
+  cursor: pointer;
+}
+.activ:hover {
+  color: #08aef1;
+}
+.content {
+  -webkit-box-flex: 6;
+  -webkit-flex: 6;
+  -ms-flex: 6;
+  flex: 6;
+  margin-right: 15px;
+  margin-bottom: 15px;
+  min-height: 100px;
+}

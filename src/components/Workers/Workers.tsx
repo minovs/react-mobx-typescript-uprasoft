@@ -1,7 +1,6 @@
 import { FC, useEffect, useRef } from 'react'
 import { observer } from 'mobx-react-lite'
 import { WorkersList } from './WorkersList'
-import './Workers.css'
 import worker from '../../store/worker'
 
 export const Workers: FC = observer(() => {

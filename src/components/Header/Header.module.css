@@ -1,0 +1,16 @@
+.menu {
+  display: flex;
+  list-style: none;
+  height: 100%;
+  align-items: center;
+}
+
+.menu li a {
+  margin-right: 15px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 22px;
+}
+.menu li a:hover {
+  color: rgb(128, 125, 125);
+}

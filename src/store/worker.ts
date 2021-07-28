@@ -1,4 +1,5 @@
 import { makeAutoObservable, runInAction } from 'mobx'
+import { fetchWorkers } from '../service/WorkersService'
 import { IWrkersList } from '../types/types'
 
 class Workers {
@@ -6,15 +7,14 @@ class Workers {
   constructor() {
     makeAutoObservable(this)
   }
-  async fetchWorkers(date: string) {
+  async getWorkers(date: string) {
     try {
-      const response = await fetch(`/api/workers/${date}`)
-      const json: IWrkersList[] = await response.json()
+      const response = await fetchWorkers(date)
       runInAction(() => {
-        this.workersList = json
+        this.workersList = response.data
       })
     } catch (e) {
-      console.log(e)
+      alert(e.response?.data?.message)
     }
   }
 }

@@ -4,7 +4,6 @@ import report from '../../store/report'
 import { OverTable } from '../Table/OwerTable'
 import { Thead } from '../Table/Thead'
 import { Tbody } from '../Table/Tbody'
-import './Content.css'
 
 export const Content: FC = observer(() => {
   let content = null

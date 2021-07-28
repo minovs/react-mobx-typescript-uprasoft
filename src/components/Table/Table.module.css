@@ -1,0 +1,21 @@
+.buttons button {
+  padding: 0 10px;
+  cursor: pointer;
+}
+.overTable {
+  position: relative;
+}
+.overTable .child {
+  float: left;
+}
+.overTable .child:first-child {
+  position: absolute;
+  left: 0;
+}
+.overTable .child:last-child {
+  position: absolute;
+  right: 0;
+}
+.overTable .milInfBlock {
+  margin-left: 8%;
+}

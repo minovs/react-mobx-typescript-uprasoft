@@ -1,4 +1,5 @@
 import { makeAutoObservable, runInAction } from 'mobx'
+import { fetchReport } from '../service/ReportService'
 import { IReport } from '../types/types'
 
 class Report {
@@ -10,10 +11,9 @@ class Report {
   async fetchReport(id: string) {
     const date = localStorage.getItem('chosenDate')
     try {
-      const response = await fetch(`/api/reports/${date}/${id}`)
-      const json = await response.json()
+      const response = await fetchReport(date!, id)
       runInAction(() => {
-        this.report = json
+        this.report = response.data
       })
     } catch (e) {
       console.log(e)

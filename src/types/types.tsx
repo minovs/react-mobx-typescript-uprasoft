@@ -1,3 +1,7 @@
+export interface IAuthResponse {
+  accessToken: string
+  refreshToken: string
+}
 export interface IWrker {
   id: string
   name: string

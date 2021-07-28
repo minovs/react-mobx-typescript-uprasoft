@@ -16,7 +16,7 @@ export const Tbody: FC = observer(() => {
           outObg = +item.t_out.substr(0, 2) * 60 + +item.t_out.substr(3, 2)
           i++
           return (
-            <tr key={index} className={item.marker === 1 ? 'marker' : undefined}>
+            <tr key={index} className={item.marker === 1 ? `marker` : undefined}>
               <td>{item.inf}</td>
               <td>{item.adr}</td>
               <td>{item.t_in.substr(0, 5)}</td>

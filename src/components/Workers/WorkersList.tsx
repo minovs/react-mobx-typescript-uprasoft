@@ -4,16 +4,15 @@ import worker from '../../store/worker'
 import calendar from '../../store/calendar'
 import report from '../../store/report'
 import { Accordion, AccordionSummary, AccordionDetails } from './accordion'
-import './Workers.css'
 
 export const WorkersList: FC = observer(() => {
   const [expanded, setExpanded] = useState<string | false>('panel61')
 
   useEffect(() => {
     const chosenDate = localStorage.getItem('chosenDate')
-    chosenDate !== undefined
-      ? calendar.changeDate(new Date(+chosenDate!))
-      : worker.fetchWorkers(new Date().getTime().toString())
+    chosenDate === undefined || chosenDate === null
+      ? worker.getWorkers(new Date().getTime().toString())
+      : calendar.changeDate(new Date(+chosenDate!))
   }, [])
 
   const handleChange = (panel: string) => (event: React.ChangeEvent<{}>, newExpanded: boolean) => {
